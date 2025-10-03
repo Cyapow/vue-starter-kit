@@ -19,10 +19,16 @@ defineProps<{
 </script>
 
 <template>
-    <AuthBase title="Log in to your account" description="Enter your email and password below to log in">
+    <AuthBase
+        title="Log in to your account"
+        description="Enter your email and password below to log in"
+    >
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
+        <div
+            v-if="status"
+            class="mb-4 text-center text-sm font-medium text-green-600"
+        >
             {{ status }}
         </div>
 
@@ -51,7 +57,14 @@ defineProps<{
                 <div class="grid gap-2">
                     <div class="flex items-center justify-between">
                         <Label for="password">Password</Label>
-                        <TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot password? </TextLink>
+                        <TextLink
+                            v-if="canResetPassword"
+                            :href="request()"
+                            class="text-sm"
+                            :tabindex="5"
+                        >
+                            Forgot password?
+                        </TextLink>
                     </div>
                     <Input
                         id="password"
@@ -72,8 +85,17 @@ defineProps<{
                     </Label>
                 </div>
 
-                <Button type="submit" class="mt-4 w-full" :tabindex="4" :disabled="processing">
-                    <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
+                <Button
+                    type="submit"
+                    class="mt-4 w-full"
+                    :tabindex="4"
+                    :disabled="processing"
+                    data-test="login-button"
+                >
+                    <LoaderCircle
+                        v-if="processing"
+                        class="h-4 w-4 animate-spin"
+                    />
                     Log in
                 </Button>
             </div>
